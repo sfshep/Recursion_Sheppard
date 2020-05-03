@@ -8,7 +8,7 @@
 Using knowledge of C++ and Recursion, solve the Towers of Hanoi Problem
 Recursion can be used to solve an problem if it can be broken down into successive smaller problems that are identical to the overall problem. A recursive function one that calls itself.
 Credit to https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/
-For using name of rods, clarirty of outcome much clearer thatn Gaddis Book solution.
+For using name of rods, clarirty the outcome much clearer thatn Gaddis Book solution.
 */
 
 /* Rules for solving the Towers of Hanoi 
@@ -23,7 +23,7 @@ For using name of rods, clarirty of outcome much clearer thatn Gaddis Book solut
 using namespace std;
 
 void discMove(int, char, char,char);
-void factorialR(int);
+int factorialR(int);
 int main()
 {
   int n = 0; // Number of disks
@@ -33,9 +33,15 @@ int main()
   n = validateInt(n);
   discMove(n, 'A', 'C', 'B');
   
+  // Factorial
   cout << "\n\n\n Enter a number to generate a factorial:  ";
   f= validateInt(f);
   factorialR(f);
+  // Display the factorial of the number
+  cout << "\nThe number you entered is: " << f << endl;
+  cout << "The factorial generated is: " << factorialR(f) << endl;
+  
+
   return 0;
 }
 
@@ -50,11 +56,16 @@ void discMove(int n, char from_rod, char to_rod, char aux_rod)
   }
   discMove(n - 1, from_rod, aux_rod, to_rod);
   cout << "Move disk # " << n << " from rod " << from_rod << " to rod " << to_rod << endl;
-  discMove(n-1, aux_rod, to_rod, from_rod);
+  discMove(n - 1, aux_rod, to_rod, from_rod);
 }
 
 
-void factorialR (int f)
+int factorialR (int f)
 {
-  cout << "\n \n \n Here's the factorial: " << f << endl;
+  if (f == 0)
+      return 1;  // Base case
+  else 
+      return f * factorialR(f-1);  //Recursive case
+
+  
 }
