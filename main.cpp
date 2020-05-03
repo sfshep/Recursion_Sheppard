@@ -23,14 +23,19 @@ For using name of rods, clarirty of outcome much clearer thatn Gaddis Book solut
 using namespace std;
 
 void discMove(int, char, char,char);
+void factorialR(int);
 int main()
 {
-  int n= 0; // Number of disks
+  int n = 0; // Number of disks
+  int f = 0; // factorial
   cout << "Enter the number of disks : " << endl;
   //cin >> n;
   n = validateInt(n);
-  
   discMove(n, 'A', 'C', 'B');
+  
+  cout << "\n\n\n Enter a number to generate a factorial:  ";
+  f= validateInt(f);
+  factorialR(f);
   return 0;
 }
 
@@ -49,3 +54,7 @@ void discMove(int n, char from_rod, char to_rod, char aux_rod)
 }
 
 
+void factorialR (int f)
+{
+  cout << "\n \n \n Here's the factorial: " << f << endl;
+}
