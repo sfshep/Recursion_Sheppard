@@ -22,19 +22,22 @@ For using name of rods, clarirty the outcome much clearer thatn Gaddis Book solu
 #include "Input_Validation_Extended.h"
 using namespace std;
 
-void discMove(int, char, char,char);
+
+void discMove(int, char, char,char);   //function prototypes
 int factorialR(int);
+
 int main()
 {
-  int n = 0; // Number of disks
-  int f = 0; // factorial
+  int n; // Number of disks
+  int f; // number to generate a factorial from
+
   cout << "Enter the number of disks : " << endl;
-  //cin >> n;
   n = validateInt(n);
   discMove(n, 'A', 'C', 'B');
+  cout << "All the discs are moved! \n";
   
   // Factorial
-  cout << "\n\n\n Enter a number to generate a factorial:  ";
+  cout << "\nEnter a number to generate a factorial:  ";
   f= validateInt(f);
   factorialR(f);
   // Display the factorial of the number
@@ -49,14 +52,19 @@ int main()
 
 void discMove(int n, char from_rod, char to_rod, char aux_rod)
 {
-  if (n == 1)
+
+  if (n <= 1)
   {
+   
     cout << "Move disk # 1 from rod " << from_rod << " to rod " << to_rod << endl;
+   
     return;
   }
   discMove(n - 1, from_rod, aux_rod, to_rod);
   cout << "Move disk # " << n << " from rod " << from_rod << " to rod " << to_rod << endl;
   discMove(n - 1, aux_rod, to_rod, from_rod);
+
+ 
 }
 
 
